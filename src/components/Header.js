@@ -11,6 +11,8 @@ export const Header = () => {
     signInWithPopup(auth, provider).then((result) => {
       setIsAuth(true);
       localStorage.setItem("isAuth", true);
+      //fix for refresh screen once login-- delete button stays even if logout or login happen
+      window.location.screen(true)
     })
   }
 
@@ -18,6 +20,8 @@ export const Header = () => {
     signOut(auth);
     setIsAuth(false);
     localStorage.setItem("isAuth", false);
+    //fix for refresh screen once logout-- delete button stays even if logout or login happen
+      window.location.screen(true)
   }
 
   return (
